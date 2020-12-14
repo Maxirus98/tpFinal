@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent implements OnInit {
-  imagePath:string = '../../../assets/images/julietteEtChocolat.png';
+  imagePath:string = 'assets/images/julietteEtChocolat.png';
   constructor() { }
 
   ngOnInit(): void {

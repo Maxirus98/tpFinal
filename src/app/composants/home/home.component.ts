@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  imagePath = '/assets/images/julietteEtChocolat.png';
-  imagePathBanner = '/assets/images/jcBanner.png';
+  imagePath = 'assets/images/julietteEtChocolat.png';
+  imagePathBanner = 'assets/images/jcBanner.png';
   constructor() { }
 
   ngOnInit(): void {
