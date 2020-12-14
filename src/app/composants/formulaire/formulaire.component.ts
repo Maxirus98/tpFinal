@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaire.component.css']
 })
 export class FormulaireComponent implements OnInit {
-imagePath = "../../../assets/images/jc2.jpg";
+imagePath = "/assets/images/jc2.jpg";
 //Comme un fichier JSON pris avec la methode Get
 unMets: Mets;
 inventaire:Inventaire;

@@ -11,7 +11,7 @@ import { MetsService } from 'src/app/services/mets.service';
   styleUrls: ['./modifier.component.css']
 })
 export class ModifierComponent implements OnInit {
-  imagePath = "../../../assets/images/jc2.jpg";
+  imagePath = "/assets/images/jc2.jpg";
 //Comme un fichier JSON pris avec la methode Get
 unMets: Mets;
 inventaire:Inventaire;

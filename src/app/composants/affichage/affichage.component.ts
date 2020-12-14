@@ -11,7 +11,7 @@ import {Inventaire} from '../../model/inventaire';
 })
 export class AffichageComponent implements OnInit {
   myParam:number;
-  imagePath = "../../../assets/images/jc2.jpg";
+  imagePath = "/assets/images/jc2.jpg";
   unMets:Mets = new Mets();
   inventaire:Inventaire;
   choixType:string[];

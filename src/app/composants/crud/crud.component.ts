@@ -11,7 +11,7 @@ import { Router, ActivatedRoute} from '@angular/router';
 })
 export class CrudComponent implements OnInit {
   public enTetes = ['#', 'Nom', 'Ingrédients', 'Type', 'Remarque', 'C.R.U.D'];
-  imagePath = "../../../assets/images/fondu.jpg";
+  imagePath = "/assets/images/fondu.jpg";
   menuMets:Mets[];
   unMet:Mets
   constructor(private service:MetsService, private router:Router) { 

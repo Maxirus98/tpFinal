@@ -8,9 +8,9 @@ import {ContactService} from '../../services/contact.service';
   styleUrls: ['./fun-contact.component.css']
 })
 export class FunContactComponent implements OnInit {
-  imagePath:string = '../../../assets/images/jc2.jpg';
-  imageCV:string = '../../../assets/images/cv.PNG';
-  imageLP:string = '../../../assets/images/lettreDePresentation.PNG';
+  imagePath:string = '/assets/images/jc2.jpg';
+  imageCV:string = '/assets/images/cv.PNG';
+  imageLP:string = '/assets/images/lettreDePresentation.PNG';
   cvVisible:boolean;
   lpVisible:boolean;
   messageValidation:string = '';
