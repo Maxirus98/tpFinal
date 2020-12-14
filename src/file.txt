@@ -1,0 +1,52 @@
+<div>
+    <img [src]="imagePath" alt="JcStCatherine">
+</div>
+<div class="centered bg-danger text-white p-5 rounded">
+<form>
+    <div class="form-group">
+      <label for="">Nom</label>
+      <input type="text" class="form-control" id="nom" name="nom">
+    </div>
+    <div class="form-group">
+      <label for="type">Choisissez le type de repas</label>
+      <select class="form-control" id="type">
+        <!--<option *ngFor="let selection of choixType" (selected)="rendreVisible('boisson')">{{selection}}</option>-->
+        <option value="Boisson">Boisson</option>
+        <option value="Repas">Repas</option>
+        <option value="Dessert">Dessert</option>
+      </select>
+    </div>
+    <label for="bouttonIngredients">Ingrédients</label>
+    <div id="bouttonIngredients" class="my-2">
+        <button id="boutonBoisson" type="button" class="btn btn-light" (click)="rendreVisible('boisson')"><i class="fa fa-coffee text-danger" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-light" (click)="rendreVisible('repas')"><i class="fas fa-utensils text-danger"></i></button>
+        <button type="button" class="btn btn-light" (click)="rendreVisible('dessert')"><i class="fa fa-birthday-cake text-danger" aria-hidden="true"></i></button>
+    </div>
+    <div class="form-group" [style.display]="boissonIsVisible ? 'block' : 'none'">
+      <h6 class="border-bottom" id="boisson">Pour créer une <span class="text-uppercase">boisson:</span> </h6>
+        <div class="form-check form-check-inline-block" *ngFor="let selection of inventaire.inventaireBoisson">
+          <input class="form-check-input" type="checkbox" id="listeIngredients">
+          <label class="form-check-label" for="listeIngredients">{{selection}}</label>
+        </div>
+    </div>
+    <div class="form-group"  [style.display]="repasIsVisible ? 'block' : 'none'">
+        <h6 class="border-bottom">Ingrédients <span class="text-uppercase">salés:</span></h6>
+          <div class="form-check form-check-inline-block" *ngFor="let selection of inventaire.inventaireIngredientSale">
+          <input class="form-check-input" type="checkbox" id="listeIngredients">
+          <label class="form-check-label" for="listeIngredients">{{selection}}</label>
+        </div>
+      </div>
+        <div class="form-group" [style.display]="dessertIsVisible ? 'block' : 'none'">
+        <h6 class="border-bottom">Ingrédients <span class="text-uppercase">sucrés:</span> </h6>
+        <div class="form-check form-check-inline-block" *ngFor="let selection of inventaire.inventaireIngredientSucre">
+          <input class="form-check-input" type="checkbox" id="listeIngredients">
+          <label class="form-check-label" for="listeIngredients">{{selection}}</label>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="avertissement">Peut contenir</label>
+      <textarea class="form-control" id="avertissement" rows="3"></textarea>
+    </div>
+    <button class="btn bg-white text-danger" type="submit">Envoyer <i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+  </form>
+</div>

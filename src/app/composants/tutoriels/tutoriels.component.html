@@ -1,0 +1,295 @@
+<ng-container [ngSwitch]="myParam">
+    <div class="text-light container-fluid tuto" *ngSwitchCase="angular">
+        <div id="tableMatiereAngular" class="row">
+            <div class="col-12">
+                <ol class="list-unstyled text-right">
+                    <h1 class="display-1 text-white text-capitalize text-right">Tutoriel {{myParam}}</h1>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#introAngular">Introduction</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#utilisationAngular">Utilisation d'Angular</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#SPA">Single Page Application</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#composants">Composants</a></li>
+                </ol>
+            </div>
+        </div>
+        <div id="introAngular" class="row">
+            <div class="col-lg-6 col-12  my-5">
+                <h2>Débuter avec Angular</h2>
+                <p>Tout d’abord, comme mentionné plus haut, Angular est un framework, c’est-à-dire, une architecture de composants Web ayant pour but de programmer une application complète(fullstack) sur le World Wide Web. Il est écrit en HTML, en CSS, en Typescript, en fichier JSON et j’en passe parce que Angular regroupe tous les éléments nécessaires pour créer votre application.</p>
+                <p>Enfin, il y a des prérequis :</p>
+                <p>Premièrement, il est plus facile de s’organiser dans un éditeur de code. Pour ce tutoriel, j’utiliserai <a class="text-light border-bottom" href="https://code.visualstudio.com/download">Visual Studio Code.</a></p>
+                <p>Deuxièmement , il lui faut Node.js, un programme qui s’occupe de l’exécution de d’autres programmes dont certaines tâches accomplies par  Angular CLI.
+                Vous pouvez utiliser ce <a class="text-light border-bottom" href="https://nodejs.org/en/" target="_blank">lien pour l’installer</a></p>
+                <p>Troisièmement, le client Node Package Manager(npm) le gestionnaire de paquets de Node.js, il sert à l’interaction avec les dossiers en ligne de commande. Par défaut, il est inclus avec Node.js.
+                <p>Quatrièmement , il est essentiel d’installer, à partir du système de «packages» d’Angular, son interface en ligne de commande(CLI). Il sera pratique pour créer des applications et des projets.
+                Il suffit d’entrer cette commande dans votre invite de commandes pour l’installer globalement sur votre ordinateur : 
+                npm install -g @angular/cli@10.0.0
+                <p>
+                    D’ailleurs, il est optionnel dans l’utilisation d’Angular,
+                    mais pour ce tutoriel: vous pouvez installer JSON-SERVER,
+                    qui servira de service Web pour simuler l’utilisation d’une base de données. 
+                    Voici la commande pour l’installer: npm i g json-server.
+                </p>
+            </div>
+            <div class="col-lg-6 col-12 text-center my-5">
+                <i class="fab fa-angular fa-10x -circle"></i>
+            </div>
+        </div>
+        <div id="utilisationAngular" class="row">
+            <div class="col-lg-6 col-12  my-5">
+                <h2>Utilisation d'Angular</h2>
+                <p>Après son installation, vous pouvez commencer à utiliser votre nouvelle interface en utilisant la syntaxe d’Angular dans cette image.</p>
+                <h5>Créer un projet avec routage</h5>
+                <p>ng n nom_du_projet --routing</p>
+                <p>La création du projet initialise tout ce qu’on a besoin pour configurer Angular avec sa librairie extensive et ses fichiers de configuration JSON.</p>
+                <h5>Les fichiers de meta-données</h5>
+                <p><span class="font-weight-bold">Package.json</span> est un fichier donnant l’information à npm pour gérer les dépendances du projet, les appels des commandes npm dans le tableau «scripts» du fichier. Remplacez dans ce fichier, la ligne ng serve par ng serve -o –port 3333 suite à ‘’start’’ pour ouvrir la page Web lorsque l’application démarre, sur le port local 3333 de votre ordinateur. L’URL de la page votre Web au démarrage sera comme ceci : http://localhost:3333.</p>
+                <p><span class="font-weight-bold">Tsconfig.</span> json est un fichier de configuration du compilateur TypeScript, un des langages principaux pour développer une application angulaire. Vous n’avez rien à modifier dans ce fichier, mais il pourrait vous être utile dans le futur. Dans Angular, ce fichier est diviser en plusieurs parties ts.config.base.json, tsconfig.app.json, e2e/tsconfig.json et tsconfig.json. 
+                </p>
+                <p><span class="font-weight-bold">Angular.json</span> permet au projet d’utiliser des outils provenant des librairies importées dans le dossier 
+                    <span class="font-weight-bold">node_modules</span>
+                    Pour utiliser les libraires comme Bootstrap, Jquery et FontAwesome, il faut les installer et les sauvegarder dans le projet.
+                </p>
+                <p>Dans ce fichier, ajouter ces lignes: </p>
+                <ul class="list-unstyled">
+                    <li>"styles": [ "node_modules/bootstrap/dist/css/bootstrap.min.css", </li>
+                    <li>"node_modules/@fortawesome/fontawesome-free/css/all.css", "src/styles.css"],</li>
+                    <li>"scripts": [ "node_modules/bootstrap/dist/js/bootstrap.min.js" ]</li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li>Installer BootStrap localement : npm i boostrap --save</li>
+                    <li>Installer Jquery localement : npm i jquery --save</li>
+                    <li>Installer Font-Awesome localement : npm i fortawesome/fontawesome-free --save</li>
+                </ul>
+                <p>
+                    <span class="font-weight-bold">App.module.ts</span> est une fichier typescript qui est marqué par un décorateur @NgModule qui contient le tableau declarations de Composant et dans le tableau imports de Modules. Les modules devront être importés. Un module est une classe qui donne la possibilité de contrôler certains aspects additionnels d’un composant, comme l’utilisation des services Web avec HttpClientModule. Ajouter les modules HttpClientModule et FormsModule séparés de virgules.
+                </p>
+                <p>
+                    <span class="font-weight-bold">App-routing.module.ts </span>est le module ajouté lors de la création du projet Angular en précisant --routing. Il sert à définir les adresses Web complètes du composant dans le tableau de Routes nommé routes.
+                </p> 
+                <h2 id="SPA">Single Page Application(SPA)</h2>
+                <p>Un des avantages de l’utilisation d’Angular est de rendre un site Web avec plusieurs pages et avec beaucoup d’envois d’adresses Web en une seule page, qui navigue entre composants. </p>           
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 my-sm-5" *ngFor="let carte of tableauCartesUtilisationAngular;let i=index;let texte of tableauTexte;">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" style="height:25rem;" [src]="tableauCartesUtilisationAngular[i]" alt="Card image cap">
+                                <div class="card-body text-danger text-center">{{texte}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="composants" class="row">
+            <div class="col-lg-6 col-12  my-5">
+                <h2>Les composants</h2>
+                <p>Pour créer un nouveau composant: ng g c nom_composant --skipTest</p>
+                <p>Leur utilité est de regrouper tout ce qui compose une page Web, ou une partie d’une page Web, en un seul répertoire. Le composant est divisé en parties : Une «back-end» dans un fichier TypeScript où les instructions/codes déterminent l’utilisation du composant. Les classes sont marquées comme composant Angular à l’aide d’un décorateur @Component dans lequel se trouve le selector(identifiant du composant), un templateUrl qui pointe vers le fichier HTML de ce composant ou un template qui est le code HTML inséré dans le même fichier. Puis, il y a un styleUrls ou style qui s’utilise pareillement.</p>
+                <p>Les composants principaux sont définies dans le tableau bootstrap dans le fichier app.module. Par défaut, le composant principal est AppComponent qui se trouve dans le fichier app.component.ts. L’identifiant de ce composant est app-root et c’est le seul composant qui est appelé sur la page index.html de l’application. Tous les autres composants sont appelés dans le composant principal.</p>  
+                <h5>Les directives</h5>
+                <p>Il y a des directives structurelles incrustées dans le «framework», comme *ngSwitch et le *ngFor qui permettront d’ajouter de la logique dans les balises HTML pour éviter la répétition de balise ou pour vérifier une condition. Voir image ci-dessous. Puis, il y a l’interpolation qui sert au contrôle des attributs des composants, elle se fait en entourant le nom de l'attirbut par 2 accolades de chaque côté.</p>
+                <h5>Les classes</h5>
+                <p>Pour créer une nouvelle classe, il suffit d'entrer cette commande: </p>
+                <p>ng g cl nom_classe</p>
+                <p>Les classes servent d'objets qui peuvent être manipulés à l'aide du langage Typescript</p>
+                <p>Pour en savoir plus sur Angular vous pouvez toujours visiter <a class="text-light border-bottom" href="https://angular.io/">le site officiel</a></p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="container">
+                    <div class="row my-5">
+                        <div class="col-lg-6 my-sm-5" *ngFor="let carte of tableauCartesComposant;let i=index;let texte of tableauTexteComposant;">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" style="height:25rem;" [src]="tableauCartesComposant[i]" alt="card image">
+                                <div class="card-body text-danger text-center">{{texte}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-light container-fluid tuto" *ngSwitchCase="crud">
+        <div id="tableMatiereCrud" class="row">
+            <div class="col-12">
+                <h1 class="display-1 text-white text-capitalize text-right">Tutoriel {{myParam}}</h1>
+                <ol class="list-unstyled text-right">
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#introCrud">Introduction</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#services">Services</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/angular/#routage">Routage</a></li>
+                </ol>
+            </div>
+        </div>
+        <div id="introCrud" class="row">
+            <div class="col-lg-6 col-12">
+                <h2>Introduction</h2>
+                <p>L’utilisation des services requiert l’importation du HttpClientModule dans le fichier app.module.ts, dans le tableau imports de la classe AppModule. On utilise le protocole http pour créer, lire, modifier et supprimer des éléments d’une base de données simulées par un fichier Json.</p>
+                <p>Le routage d'Angular va permettre aux pages de naviguer entre elles sans demander de nouveau l'url au serveur. Voir la section <a class="text-light border-bottom" href="/tutoriels/angular#SPA">Single Page Application (SPA) du tutoriel Angular</a></p>
+                <P>On initalise notre projet avec --routing pour ajouter le module AppRoutingModule.</P>
+            </div>
+            <div class="col-lg-6 col-12">
+            </div>
+        </div>
+        <div id="services" class="row">
+            <div class="col-lg-6 col-12">
+                <h2>Les services</h2>
+                <p>Pour créer un service Angular, on commence par le générer avec la commande: ng generate service [--skipTests]. Puis, il faut importer dans notre service le HttpClientModule qui nous servira à faire le lien entre notre service et le serveur Web à l’aide du protocole http.</p>
+                <p>Toutes les méthodes du C.R.U.D seront assignées à d’autres méthodes pour être déclenchées à la suite d’une événement.</p>
+                <p>Dans ces images, j'utilise la généricité avec les lettres T et K, vous pouvez les changer pour faire votre propre service en remplaçant ces lettres par des types du langage Typescript(number, string, boolean) ou même votre objet.</p>
+                <p>Les méthodes retournent un Observable qui observent le changement de données avant de retourner l'objet spécifié.</p>
+                <h5>Exemples d'utilisations</h5>
+                <p>Pour envoyer des données d'un formulaire à une base de données:</p>
+                <p>On donne à notre composant un service du type de service que vous avez créé. Puis, lors de l'envoi du formulaire, on vérifie qu'il est valide et on envoi les données entrées vers un fichier Json qui simule une base de données.</p>
+                <p>Chaque méthode retourne un Objet Observable et c'est pour cela qu'il faut utiliser la méthode subscribe().</p>
+            </div>    
+            <div class="col-lg-6 col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 my-sm-2" *ngFor="let carte of tableauCartesCrud;let i=index;let option of optionsCrud;">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" style="height:10rem;" [src]="tableauCartesCrud[i]" alt="crud image">
+                                <div class="card-body text-danger text-center">{{option}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Exemples</h2>
+        <div id="servicesExemple" class="row">
+            <div class=" col-lg-3 my-sm-2" *ngFor="let carte of tableauCartesExempleCrud;let i=index;let texte of tableauTexteExempleCrud;">
+                <div class="card" style="margin:0;" style="width: 30rem;">
+                    <img class="card-img-top" style="height:10rem;" [src]="tableauCartesExempleCrud[i]" alt="crud image">
+                    <div class="card-body text-danger text-center">{{texte}}</div>
+                </div>
+            </div>
+        </div>
+        <div id="routage" class="row">
+            <div class="col-lg-6 col-12">
+                <h2>Les routes</h2>
+                <p>Le système de routage d'Angular est dans node_modules sous le dossier @angular/router et @angular/route</p>
+                <h5>Router</h5>
+                <p>Le Router navigue entre les vues que donnent chacun des composants, les vues se trouvent dans router-outlet une balise appelée dans le composant principal</p>
+                <p>Le  RouterModule est importé dans le module AppRoutingModule où il y a un tableau de Routes qui spécifieront l'url pour chaque composant.</p>
+                <p>On déclare le chemin de la vue et son composant.</p>
+                <p>Si le composant est composé, il suffit de lui déclaré un tableau d'enfants qui se nomme children et leur attribué un chemin, ainsi que le composant de l'enfant.</p>
+                <p>Chaque enfant a un chemin different et c'est ici que les routes activées entrent en jeu.</p>
+                <h5>Les routes activées(ActivatedRoute)</h5>
+                <p>Dans l'image «Une route activée» on utilise un Activated Route pour aller chercher un Obersvable de type Params pour affecter une variable par la valeur du chemin de l'enfant de la route choisit.</p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 my-sm-5" *ngFor="let carte of tableauCartesRoute;let i=index;let texte of tableauTexteRoute;">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" style="height:15rem;" [src]="tableauCartesRoute[i]" alt="Card image cap">
+                                <div class="card-body text-danger text-center">{{texte}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-light container-fluid tuto" *ngSwitchCase="relations">
+        <div id="utilisationAngular" class="row">
+            <div id="tableMatiereRelations" class="col-12">
+                <h1 class="display-1 text-white text-capitalize text-right">Tutoriel {{myParam}}</h1>
+                <ul class=" list-unstyled text-right">
+                    <li><a class="text-light border-bottom" href="/tutoriels/relations/#introRelations">Introduction</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/relations/#conceptsOo">Concepts orienté-objet</a></li>
+                    <li><a class="text-light border-bottom" href="/tutoriels/relations/#multiplicite">Multiplicité</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="introRelations" class="row">
+            <div class="col-lg-6 col-12">
+                <h2>Introduction</h2>
+                <p>Pour commencer, les relation entre tables servent à garder un lien entre ces tables. Les liens peuvent être optionnels ou obligatoires. Ils existent plusieurs types de liens :</p>
+                <ul class="list-unstyled">
+                    <li>Les associations</li>
+                    <li>Les agrégations et les compositions</li>
+                    <li>Les dépendances</li>
+                    <li>Les réalisations</li>
+                    <li>Les généralisations</li>
+                </ul>
+                <p>Pour présenter ces relations, j'expliquerai d'abord des concepts de la programmation orientée objets. Pour en finir, j'aborderai la multiplicité des relations.</p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <h2>Les types de relations</h2>
+                <h5>Association</h5>
+                <p>Une association consiste à avoir comme attribut l'objet qui lui est associé sans l'instancier.</p>
+                <h5>Agrégation et composition</h5>
+                <p>L'agrégation possède un attribut de l'objet associé sans nécessairement devoir l'instancier dans le constructeur, tandis que la composition est une agrégation plus forte et l'objet attribué doit être instancié.</p>
+                <h5>La dépendance</h5>
+                <p>Une relation temporaire, comme un événement, qui est limité dans le temps.</p>
+                <h5>La réalisation</h5>
+                <p>Les réalisations définissent le concept d'abstraction où une interface oblige l'implementation de ces méthodes abstraites à un autre objet.</p>
+                <h5>La généralisation</h5>
+                <p>La généralisation définit le concept de l'héritage de Parent à Enfant</p>
+            </div>
+        </div>
+        <div id="conceptsOo" class="row">
+            <div class="col-lg-6 col-12">
+                <h2>Concepts de l'orienté objet</h2>
+                <p>Tout d'abord, il y a 5 grands concepts de la programmation orientée objet.</p>
+                <h5>La visibilité</h5>
+                <p>Ce concept de paquet dirige le «champ de vision» des objets. Ces objets pourront emprunter des méthodes à des packages.</p>
+                <h5>L'abstraction</h5>
+                <p>Un objet de type interface ne contient que les signatures des méthodes et qui obligent l'implementation de celles-ci lorsqu'un autre objet contient le mot-clé «implements».</p>
+                <h5>Encapsulation</h5>
+                <p>L'encapsulation, c'est la permission donnée aux objets de voir les attributs et méthodes des autres objets.</p>
+                <ul class="list-unstyled">
+                    <li>Private: aucun autre objet ne peut voir les éléments associés au mot-clé private.</li>
+                    <li>Public: tous les autres objets ont accès aux éléments public. Public est la valeur par défaut.</li>
+                    <li>Protected: seuls la classe même et les sous-classes peuvent voir le contenu protected. Ce qui m'amène à l'héritage.</li>
+                </ul>
+                <h5>Héritage</h5>
+                <p>L'héritage est un concept qui permet à un objet d'utilisé les propriétés public ou protected d'un autre objet appelé Parent. L'héritage sert à réduire la répétition de code. La première conséquence de l'héritage est le polymorphisme.</p>
+                <p>L'héritage est une relation de généralisation.</p>
+                <h5>Le polymorphisme</h5>
+                <p>Il permet de déclarer l'instance d'un enfant à partir d'un parent puisque l'enfant est un Parent avec des spécifications différentes.</p>
+                <p>Ex: Parent premierEnfant = new Enfant();</p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 my-sm-5 text-center" *ngFor="let carte of tableauCartesRelations;let i=index;let texte of tableauTexteRelations">
+                            <div class="card" style="width: 25rem;">
+                                <img class="card-img-top" style="height:20rem;" [src]="tableauCartesRelations[i]" alt="Card image cap">
+                                <div class="card-body text-danger text-center">{{texte}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center">La multiplicité</h2>
+        <div id="multiplicite" class="row">
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 my-sm-5" *ngFor="let carte of tableauCartesMultiplicite;let i=index;let texte of tableauTexteMultiplicite;">
+                            <div class="card" style="width: 25rem;">
+                                <img class="card-img-top" style="height:20rem;" [src]="tableauCartesMultiplicite[i]" alt="Card image cap">
+                                <div class="card-body text-danger text-center">{{texte}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngSwitchDefault> 
+        <div>
+            <img [src]="'../../../assets/images/patisserie.jpg'" alt="JulietteEtChocolat">
+        </div>
+        <div class="centered">
+             <h1 class="display-1 text-center text-light">L'adresse du tutoriel est fausse</h1>
+            <button type="button" class="btn-danger" [routerLink]="['/tutoriels', 'angular']">Aller au tutoriel Angular</button>
+            <button type="button" class="btn-danger" [routerLink]="['/tutoriels', 'crud']">Aller au tutoriel CRUD</button>
+            <button type="button" class="btn-danger" [routerLink]="['/tutoriels', 'relations']">Aller au tutoriel Relations</button>
+        </div>
+    </ng-container>
+</ng-container>

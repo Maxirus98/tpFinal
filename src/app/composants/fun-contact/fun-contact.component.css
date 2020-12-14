@@ -1,0 +1,24 @@
+img{
+    width:100%;
+}
+button{
+    width:100%;
+}
+.centered{
+    position: absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%, 0);
+    z-index:0;
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+}
+
+h1{
+    font-family:Brush Script MT;
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%, 0);
+    z-index:0;
+}

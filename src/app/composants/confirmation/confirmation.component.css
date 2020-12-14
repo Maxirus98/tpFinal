@@ -1,0 +1,22 @@
+.centered{
+    position: absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%, 0);
+    z-index:0;
+}
+img{
+    width:100%;
+}
+button{
+    width:40%;
+}
+
+h1{
+    font-family:Brush Script MT;
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%, 0);
+    z-index:0;
+}

@@ -1,0 +1,76 @@
+<div class="text-center" style="height:60vh;">
+    <h1 class="centered text-light fixed-center">Bienvenu chez Juliette & Chocolat</h1>
+    <img [src]="imagePath" style="width:100%;" alt="JulietteEtChocolat" style="height:100rem;"/>
+    <div id="liens">
+        <a href="https://www.facebook.com/julietteetchocolat"><i class="fab fa-facebook fa-2x mx-2"></i></a>
+        <a href="https://twitter.com/juliette_choco?lang=fr"><i class="fab fa-twitter fa-2x text-info mx-2"></i></a>
+        <a href="https://play.google.com/store/apps/details?id=io.ueat.julietteetchocolat&hl=en_US"><i class="fab fa-google-play text-warning fa-2x mx-2" aria-hidden="true"></i></a>
+        <a href="https://www.julietteetchocolat.com/"><i class="fa fa-shopping-bag text-danger fa-2x mx-2" aria-hidden="true"></i></a>
+    </div>
+</div>
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-12 my-sm-2">
+                <div class="card bg-light">
+                    <div class="card-header text-danger">
+                        <i class="fab fa-angular fa-2x m-2"></i>
+                        <i class="fa fa-code fa-2x m-2" aria-hidden="true"></i>
+                        <i class="fas fa-code-branch fa-2x m-2"></i>
+                        <h5>Tutoriels</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">
+                            Ma section tutoriel présente <a class="text-danger" [routerLink]="['/tutoriels', 'angular']">Angular</a> pour les débutants
+                        </p>
+                        <p class="text-muted">
+                            D'ailleurs, il y a aussi un tutoriel sur le langage <a class="text-danger" [routerLink]="['/tutoriels', 'typescript']">Typescript</a>.
+                        </p>
+                        <p class="text-muted">
+                            Finalement, elle explique les <a class="text-danger" [routerLink]="['/tutoriels', 'relations']">relations entre objets</a> à l'aide de concepts propre à la programmation orientée-objet. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 my-sm-2">
+                <div class="card bg-light">
+                    <div class="card-header text-danger">
+                        <i class="fas fa-directions fa-2x my-2"></i>
+                        <h5>Direction du site</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">
+                            Le thème du site est le restaurant Juliette & Chocolat
+                            où le développeur , si connu, Maxime Dupuis y travaille.
+                        </p>
+                        <p class="text-muted">
+                           Le restaurant est fondé, au Québec, en 2003, par Juliette Brun.
+                           Un projet de gourmandise a vite gagné en popularité.
+                           Le restaurant a maintenant 8 succursale à travers la grande ville de Montréal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 my-sm-2">
+                <div class="card">
+                    <div class="card-header text-danger">
+                        <i class="fa fa-comment fa-2x my-2" aria-hidden="true"></i>
+                        <h5>Explications</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">
+                            La section <a class="text-danger" [routerLink]="['/formulaire']">Recette+</a> est un formulaire où l'on peut créer sa propre recette 
+                            à l'aide des ingrédients de Juliette & Chocolat, mmmm <i class="far fa-grin-tongue"></i>
+                        </p>
+                        <p class="text-muted">
+                            La section <a class="text-danger" [routerLink]="['/crud']">Menu</a> sera un tableau résultant du C.R.U.D qui grandit peu à peu que les recettes sont ajoutées dans le menu du restaurant.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

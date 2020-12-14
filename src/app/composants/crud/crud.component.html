@@ -1,0 +1,59 @@
+<img [src]="imagePath" alt="fondu" style="height:100rem;"/>
+<div class="centered container-fluid">
+  <table class="table table-hover table-bordered">
+    <caption class="text-center text-white">
+      Liste des recettes
+    </caption>
+    <thead class="text-danger bg-light">
+      <tr>
+        <th *ngFor="let item of enTetes" scope="col">{{ item }}</th>
+      </tr>
+    </thead>
+    <tbody class="bg-light text-danger">
+      <tr *ngFor="let element of menuMets; let i = index">
+        <td>{{ element.id }}</td>
+        <td>{{ element.nom }}</td>
+        <td>
+          <li *ngFor="let ingredient of element.ingredients">
+            {{ ingredient }}
+          </li>
+        </td>
+        <td>{{ element.type }}</td>
+        <td>{{ element.remarque }}</td>
+        <td>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-4">
+                <button
+                  type="button"
+                  class="btn btn-primary m-sm-1 p-lg-5"
+                  (click)="trouverUnSeulMet(element.id, 'affichage')"
+                >
+                  Afficher
+                </button>
+              </div>
+              <div class="col-lg-4">
+                <button
+                  type="button"
+                  class="btn btn-warning text-light m-sm-1 p-lg-5"
+                  (click)="trouverUnSeulMet(element.id, 'modifier')"
+                >
+                  Modifier
+                </button>
+              </div>
+              <div class="col-lg-4">
+                <button
+                  type="button"
+                  class="btn btn-danger m-sm-1 p-lg-5"
+                  (click)="supprimerMet(element.id, i)"
+                >
+                  Supprimer
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

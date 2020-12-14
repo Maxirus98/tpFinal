@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../../assets/images/logo.png" style="width:10vh; height:10vh;" alt="logo JC"> Maxime Dupuis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link border-bottom mx-2" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle border-bottom mx-2" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tutoriels
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item border-bottom" [routerLink]="['/tutoriels', 'angular']"><i class="fab fa-angular"></i> Mini tutoriel Angular</a>
+              <a class="dropdown-item border-bottom" [routerLink]="['/tutoriels', 'crud']"><i class="fas fa-code"></i> Mini tutoriel CRUD</a>
+              <a class="dropdown-item border-bottom" [routerLink]="['/tutoriels', 'relations']"><i class="fas fa-code-branch"></i> Mini tutoriel sur les Relations</a>
+            </div>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link border-bottom mx-2" [routerLink]="['/formulaire']">Recette <i class="fas fa-plus-circle"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link border-bottom mx-2" [routerLink]="['/crud']">Menu <i class="fas fa-clipboard-list    "></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link border-bottom mx-2" [routerLink]="['/contact']">Fun Contact</a>
+          </li>
+      </ul>
+    </div>
+  </nav>

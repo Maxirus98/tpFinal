@@ -1,0 +1,64 @@
+<div>
+    <img [src]="imagePath" alt="JcStCatherine" style="height:100rem;">
+</div>
+<h2 class="text-danger">Créez votre propre recette de chez Juliette & Chocolat</h2>
+<div class="centered bg-danger text-white p-5 rounded">
+<form #nouvelleRecette="ngForm" (ngSubmit)="onSubmit(nouvelleRecette)">  
+    <div class="form-group">
+      <label for="nom">Nom*</label>
+      <input type="text" class="form-control" id="nom" name="nom" minlength="4" placeholder="ex : Tour Infernal" [(ngModel)]="unMets.nom" #nom="ngModel" required/>
+      <div *ngIf="nom.invalid && nom.touched">
+        <div *ngIf="nom.errors.required">
+          Vous devez entrer un nom.
+        </div>
+        <div *ngIf="nom.errors.minlength">
+          Votre nom doit être composé d'au moins 4 lettres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Choisissez le type de repas*</label>
+      <select #typeRecette="ngModel" class="form-control" id="type" name="type" [(ngModel)]="unMets.type" required>
+        <option value="Boisson">Boisson</option>
+        <option value="Repas">Repas</option>
+        <option value="Dessert">Dessert</option>
+      </select>
+      <div *ngIf="typeRecette.invalid && typeRecette.touched">
+        Vous devez choisir un type de repas pour voir la liste des ingrédients.
+      </div>
+    </div>
+    <div id="ingredients">
+      <div *ngIf="typeRecette.value == 'Boisson'" id="boisson" [style.display]="'block'">
+      <label for="ingredientsBoissons">Pour constituer une boisson: </label>
+      <select multiple name="ingredients" id="ingredientsBoissons" class="form-control" [(ngModel)]="unMets.ingredients" required>
+        <option *ngFor="let ingredient of inventaire.inventaireBoisson" [ngValue]="ingredient">
+          {{ingredient}}
+        </option>
+      </select>
+      </div>
+      <div *ngIf="typeRecette.value == 'Repas'" id="repas" [style.display]="'block'">
+      <label for="ingredientsRepas">Pour constituer un repas: </label>
+      <select multiple name="ingredients" id="ingredientsRepas" class="form-control" [(ngModel)]="unMets.ingredients">
+        <option *ngFor="let ingredient of inventaire.inventaireIngredientSale" [ngValue]="ingredient">
+          {{ingredient}}
+        </option>
+      </select>
+      </div>
+      <div *ngIf="typeRecette.value == 'Dessert'" id="dessert" [style.display]="'block'">
+      <label for="ingredientsDesserts">Pour constituer un dessert: </label>
+      <select multiple name="ingredients" id="ingredientsDesserts" class="form-control" [(ngModel)]="unMets.ingredients">
+        <option *ngFor="let ingredient of inventaire.inventaireIngredientSucre" [ngValue]="ingredient">
+          {{ingredient}}
+        </option>
+      </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="avertissement">Remarque</label>
+      <textarea class="form-control" id="avertissement" name="avertissement" rows="3" style="resize: none;" [(ngModel)]="unMets.remarque"></textarea>
+    </div>
+    <div class="text-center">
+      <button class="btn bg-white text-danger" style="width: 100%;">Envoyer <i class="fa fa-arrow-circle-right " aria-hidden="true"></i></button>
+    </div>
+  </form>
+</div>

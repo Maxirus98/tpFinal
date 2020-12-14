@@ -1,0 +1,39 @@
+<div>
+  <img [src]="imagePath" alt="JcStCatherine" />
+</div>
+<h2 class="text-danger">{{ unMets.nom }}</h2>
+<div class="centered bg-danger text-white p-5 rounded">
+  <form #afficherRecette="ngForm">
+    <div class="form-group">
+      <label for="id">ID: </label>
+      <input
+        type="text"
+        id="id"
+        class="form-control"
+        value="{{ unMets.id }}"
+        readonly
+      />
+    </div>
+    <label for="type">Type: </label>
+    <div class="form-group">
+      <select class="form-control" readonly>
+        <option>{{ unMets.type }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ingredients">Ingrédients: </label>
+      <select multiple class="form-control" readonly>
+        <option *ngFor="let ingredient of unMets.ingredients">
+          {{ ingredient }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="remarque">Remarque: </label>
+      <textarea class="form-control" readonly>{{ unMets.remarque }}</textarea>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-light text-danger" [routerLink]="['/crud']">Retourner vers le menu <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+    </div>
+  </form>
+</div>

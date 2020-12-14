@@ -1,0 +1,7 @@
+.navbar{
+    z-index:3000;
+}
+.container-fluid{
+    width:100%;
+    padding:0;
+}

@@ -1,0 +1,38 @@
+<div>
+  <img [src]="imagePath" alt="Juliette Et Chocolat" style="height:100rem;"/>
+</div>
+<h1 class="text-danger display-1">Fun Contact</h1>
+<div class="container centered">
+    <div class="row">
+        <div class="col-lg-6 col-12">
+            <button class="btn btn-danger px-5" (click)="rendreCvVisible()">
+                Voir le C.V.
+                </button>
+            <div [style.display]="cvVisible ? 'block' : 'none'">
+                <img class="imageResizeable" [src]="imageCV" alt="CV de Maxime Dupuis" />
+            </div>
+        </div>
+        <div class="col-lg-6 col-12">
+            <button class="btn btn-danger d-block" (click)="rendreLpVisible()">
+                Voir la lettre de présentation générale
+                </button>
+            <div [style.display]="lpVisible ? 'block' : 'none'">
+                <img class="imageResizeable" [src]="imageLP" alt="Lettre de présentation" />
+            </div>
+        </div>
+    </div>
+    
+    <form [(formGroup)]="contactForm" (ngSubmit)="onSubmit()" class="bg-danger rounded my-5 p-5">
+        <div class="text-light text-center">
+            <label for="nom" class="border-bottom d-block">Nom</label>
+            <input type="text" formControlName="nom" class="form-control" placeholder="Votre Nom">
+            <label for="prenom" class="border-bottom d-block mt-5">Prenom</label>
+            <input type="text" formControlName="prenom" class="form-control" placeholder="Votre Prenom">
+            <label for="courriel" class="border-bottom d-block mt-5">Courriel:</label>
+            <input type="email" formControlName="courriel" class="form-control" placeholder="exemple@exemple.com">
+            <label for="message" class="mt-5 border-bottom d-block">Message</label>
+            <textarea id="message" formControlName="message" class="form-control"></textarea>
+            <button class="btn btn-light text-danger mt-5">Envoyer <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+        </div>
+    </form>
+</div>

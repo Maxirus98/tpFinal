@@ -1,0 +1,33 @@
+.tuto{
+    background-image: url(../../../assets/images/patisserie.jpg);
+}
+.centered{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:99%;
+    transform: translate(-50%, 0);
+    z-index:0;
+}
+.btn-danger{
+    display:inline-block;
+    width:33.33%;
+}
+#tableMatiereAngular{
+    float:right; 
+}
+#introAngular{
+    clear:right;
+}
+
+h1{
+    font-family:Brush Script MT;
+}
+
+@media screen and (min-width: 992px) {
+    .fa-angular{
+        position:relative;
+        top:30%;
+    }
+}
+
