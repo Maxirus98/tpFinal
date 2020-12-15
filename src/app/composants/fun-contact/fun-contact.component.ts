@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employeur } from 'src/app/model/employeur';
 import {ContactService} from '../../services/contact.service';
 @Component({
   selector: 'app-fun-contact',
@@ -14,15 +15,17 @@ export class FunContactComponent implements OnInit {
   cvVisible:boolean;
   lpVisible:boolean;
   messageValidation:string = '';
-
+  unEmployeur:Employeur;
   contactForm = new FormGroup({
-    nom: new FormControl('', [Validators.required, Validators.minLength(2),
+    nom: new FormControl('', 
+      [Validators.required, Validators.minLength(2),
        Validators.pattern("^[a-zA-Z]+$")]),
     prenom: new FormControl('', [Validators.required,  Validators.minLength(2),
       Validators.pattern("^[a-zA-Z]+$")]),
-      courriel: new FormControl('',[Validators.required, Validators.pattern("^[a-zA-Z@]+$")])
+      courriel: new FormControl('',[Validators.required]),
+      message: new FormControl('')
   });
-  constructor(private service:ContactService, private route:ActivatedRoute) { }
+  constructor(private service:ContactService, private router:Router) { }
 
   ngOnInit(): void {
     this.cvVisible = false;
@@ -46,8 +49,20 @@ export class FunContactComponent implements OnInit {
       this.lpVisible = true;
     }
   }
+
   onSubmit(){
-    if(this.messageValidation = ''){
+    if(this.contactForm.valid){
+      this.service.create(this.contactForm.value).subscribe(data => {
+        this.unEmployeur = new Employeur();
+        this.router.navigateByUrl('/confirmation');
+      },
+        (err) => {
+          console.log(err);
+        })
+    }
+    else{
+        this.messageValidation = "Veuillez bien remplir le formulaire d'abord.";
+        console.log(this.contactForm.value)
     }
   }
 }

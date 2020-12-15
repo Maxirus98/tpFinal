@@ -5,15 +5,29 @@
       "type": "Repas",
       "ingredients": [
         "Crêpe salée",
+        "Oeuf",
+        "Menthe",
+        "Patate",
+        "Saumon",
+        "Poulet",
         "Jambon",
+        "Dinde",
+        "Épinard",
+        "Salade",
+        "Tomate",
+        "Concombre",
+        "Oignon rouge",
         "Gruyère suisse",
         "Sel",
         "Poivre",
         "Beurre",
         "Raclette",
-        "Sauce béchamel"
+        "Sauce Juliette & Chocolat",
+        "Sauce béchamel",
+        "Sauce BBQ au cacao",
+        "Sauce pesto"
       ],
-      "remarque": "",
+      "remarque": "Gluten",
       "id": 1
     }
   ]

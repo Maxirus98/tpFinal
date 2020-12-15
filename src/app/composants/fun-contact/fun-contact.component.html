@@ -24,6 +24,9 @@
     
     <form [(formGroup)]="contactForm" (ngSubmit)="onSubmit()" class="bg-danger rounded my-5 p-5">
         <div class="text-light text-center">
+            <div class="text-left" *ngIf="messageValidation != ''">
+                {{messageValidation}}
+            </div>
             <label for="nom" class="border-bottom d-block">Nom</label>
             <input type="text" formControlName="nom" class="form-control" placeholder="Votre Nom">
             <label for="prenom" class="border-bottom d-block mt-5">Prenom</label>
